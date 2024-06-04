@@ -1,4 +1,6 @@
 import uuid
+
+from cloudinary.models import CloudinaryField
 from django.db import models
 
 male = 'Male'
@@ -18,7 +20,7 @@ class Person(models.Model):
     description = models.TextField(null=True, blank=True)
     date_of_birth = models.DateField()
     date_of_death = models.DateField()
-    image = models.ImageField(upload_to='person_images/')
+    image = CloudinaryField("person_images")
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     gender = models.CharField(max_length=100, choices=GENDER)

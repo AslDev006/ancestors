@@ -34,9 +34,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'dj_database_url',
+    'cloudinary_storage',
+    'cloudinary',
     #LocalApps
     'models',
 ]
+
+import cloudinary
+import  cloudinary.uploader
+import cloudinary.api
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,3 +142,11 @@ STATICFILES_FINDER = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+cloudinary.config(
+    cloud_name = env('CLOUD_NAME'),
+    api_key = env('API_KEY'),
+    api_secret = env('API_SECRET'),
+)
