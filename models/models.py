@@ -15,8 +15,8 @@ class Person(models.Model):
         female = female
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=255)
-    second_name = models.CharField(max_length=255)
-    third_name = models.CharField(max_length=255)
+    second_name = models.CharField(max_length=255, null=True, blank=True)
+    third_name = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     date_of_birth = models.DateField()
     date_of_death = models.DateField(null=True, blank=True)
