@@ -19,7 +19,7 @@ class Person(models.Model):
     third_name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     date_of_birth = models.DateField()
-    date_of_death = models.DateField()
+    date_of_death = models.DateField(null=True, blank=True)
     image = CloudinaryField("person_images")
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
@@ -28,6 +28,9 @@ class Person(models.Model):
     def __str__(self):
         return f"{self.second_name} {self.first_name} {self.third_name}"
 
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.second_name} {self.third_name}"
 
 class Roles(models.Model):
     class ROLES(models.TextChoices):

@@ -13,7 +13,7 @@ from .serializers import *
 class PeopleListView(APIView):
     def get(self, request, format=None):
         service = Person.objects.all()
-        serializer = PersonSerializer(service, many=True)
+        serializer = AllPeopleSerializer(service, many=True)
         return Response(serializer.data)
 
 
@@ -73,7 +73,7 @@ def PersonDetailView(request, id):
     except Person.DoesNotExist:
         return Response(None, status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
-        serializer = PersonSerializer(user)
+        serializer = PersonDetailSerializer(user)
         return JsonResponse({
             "success": True,
             "data": serializer.data
