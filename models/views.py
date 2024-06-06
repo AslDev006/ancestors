@@ -13,7 +13,7 @@ from .serializers import *
 class PeopleListView(APIView):
     def get(self, request, format=None):
         service = Person.objects.all()
-        serializer = AllPeopleSerializer(service, many=True)
+        serializer = PersonDetailSerializer(service, many=True)
         return Response(serializer.data)
 
 
