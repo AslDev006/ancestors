@@ -1,6 +1,4 @@
-import django
-from rest_framework.serializers import ModelSerializer, Serializer
-import models.serializers
+from rest_framework.serializers import ModelSerializer
 from .models import *
 
 class AllPeopleSerializer(ModelSerializer):
