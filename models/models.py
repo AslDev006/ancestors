@@ -28,7 +28,7 @@ class Person(models.Model):
     gender = models.CharField(max_length=100, choices=GENDER)
 
     def __str__(self):
-        return f"{self.second_name} {self.first_name} {self.third_name}"
+        return f"{self.first_name}  {self.second_name}   {self.third_name}"
 
     @property
     def full_name(self):
