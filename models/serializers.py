@@ -20,7 +20,7 @@ class PersonNestedSerializer(ModelSerializer):
     roles = RolesNestedSerializer(many=True, read_only=True)
     class Meta:
         model = Person
-        fields = ["id",'first_name', 'second_name', 'third_name', 'image', 'gender', 'date_of_birth', 'date_of_death', 'description', 'roles']
+        fields = ["id",'first_name', 'second_name', 'third_name', 'image', 'gender', 'date_of_birth', 'notfound_birth', 'date_of_death', 'notfound_death', 'description', 'roles']
 
 
 class RolesSerializer(ModelSerializer):
