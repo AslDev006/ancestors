@@ -8,4 +8,5 @@ urlpatterns = [
     path('family/<id>/', FamilyDetailView),
     path('person/<id>/', PersonDetailView),
     path('family-media/<id>/', FamilyMediaDetailView),
+    path('test', TestAPiView)
 ]

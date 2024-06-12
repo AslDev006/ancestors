@@ -74,3 +74,12 @@ def PersonDetailView(request, id):
             "success": True,
             "data": serializer.data
         }, status=200)
+
+
+
+@api_view(['GET'])
+@permission_classes((AllowAny, ))
+def TestAPiView(request):
+    return JsonResponse({
+        "success": True,
+    }, status=200)
