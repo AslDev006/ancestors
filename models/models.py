@@ -64,3 +64,11 @@ class Family_Media(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PersonalImages(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='images')
+    image = CloudinaryField("pers_image/images/", null=True, blank=True)
+
+    def __str__(self):
+        return f"image for {self.person}"
