@@ -60,7 +60,7 @@ class Family_Media(models.Model):
     partners = models.ManyToManyField(Person, related_name='family_media')
     media_type = models.CharField(max_length=20, choices=MEDIA_TYPES)
     image = CloudinaryField("family_media/images/", null=True, blank=True)
-    video = CloudinaryField('family_media/videos/', null=True, blank=True)
+    video = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.title
