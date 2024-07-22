@@ -92,10 +92,27 @@ WSGI_APPLICATION = 'Shajara.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default':  dj_database_url.parse(env('DATABASE_URL'))
-}
+# DATABASES = {
+#     'default':  dj_database_url.parse(env('DATABASE_URL'))
+# }
+# Add these at the top of your settings.py
+# from os import getenv
+# from dotenv import load_dotenv
 
+# Replace the DATABASES section of your settings.py with this
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': env('PGDATABASE'),
+    'USER': env('PGUSER'),
+    'PASSWORD': env('PGPASSWORD'),
+    'HOST': env('PGHOST'),
+    'PORT':  5432,
+    'OPTIONS': {
+      'sslmode': 'require',
+    },
+  }
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

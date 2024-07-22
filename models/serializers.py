@@ -14,7 +14,7 @@ class FamilyMediaSerializer(ModelSerializer):
 class PersImageSerializer(ModelSerializer):
     class Meta:
         model = PersonalImages
-        fields = ['image']
+        fields = ['images']
 
 
 class RolesNestedSerializer(ModelSerializer):

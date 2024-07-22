@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=255)),
                 ('description', models.TextField()),
                 ('media_type', models.CharField(choices=[('Image', 'Image'), ('Video', 'Video')], max_length=20)),
-                ('image', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='family_media/images/')),
+                ('image', cloudinary.models .CloudinaryField(blank=True, max_length=255, null=True, verbose_name='family_media/images/')),
                 ('video', cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='family_media/videos/')),
                 ('partners', models.ManyToManyField(related_name='family_media', to='models.person')),
             ],
