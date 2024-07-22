@@ -5,6 +5,7 @@ from django.db import models
 male = 'Male'
 female = 'Female'
 parent = 'Parent'
+none = 'None'
 child = 'Child'
 image = 'Image'
 video = 'Video'
@@ -12,6 +13,7 @@ class Person(models.Model):
     class GENDER(models.TextChoices):
         male = male
         female = female
+        none = none
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=255)
     second_name = models.CharField(max_length=255, null=True, blank=True)
@@ -24,7 +26,7 @@ class Person(models.Model):
     image = CloudinaryField("person_images", null=True, default=None, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    gender = models.CharField(max_length=100, choices=GENDER)
+    gender = models.CharField(max_length=100, choices=GENDER, default=none)
 
     def __str__(self):
         return f"{self.first_name}  {self.second_name}   {self.third_name}"
