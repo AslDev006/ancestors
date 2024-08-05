@@ -8,8 +8,13 @@ class NewsAdmin(admin.ModelAdmin):
     search_fields = ['first_name', 'second_name', 'third_name']
     ordering = ["-create_time"]
 
-admin.site.register([Family, Family_Media, PersonalImages])
+admin.site.register([ Family_Media, PersonalImages])
 
 @admin.register(Roles)
 class NewsAdmin(admin.ModelAdmin):
     list_display = ['role', 'person', 'family']
+
+
+@admin.register(Family)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
